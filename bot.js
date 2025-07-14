@@ -1,4 +1,5 @@
 import { Client, GatewayIntentBits, EmbedBuilder, PermissionFlagsBits } from 'discord.js';
+import http from 'http';
 
 class StatusTrackerBot {
   client;
@@ -256,3 +257,12 @@ process.on('maintenance', () => process.exit());
 
 const bot = new StatusTrackerBot();
 bot.start();
+
+// Healthcheck web server for Render
+const port = process.env.PORT || 3000;
+http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('DDOS Protection Enabled. This bot is online!!');
+}).listen(port, () => {
+  console.log(`🌐 Healthcheck server running on port ${port}`);
+});
