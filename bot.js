@@ -1,7 +1,4 @@
 import { Client, GatewayIntentBits, EmbedBuilder, PermissionFlagsBits } from 'discord.js';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 class StatusTrackerBot {
   client;
@@ -246,15 +243,16 @@ class StatusTrackerBot {
   }
 
   async start() {
-    if (!process.env.DISCORD_TOKEN) throw new Error('Missing DISCORD_TOKEN env var');
-    await this.client.login(process.env.DISCORD_TOKEN);
+    const token = process.env.DISCORD_TOKEN;
+    if (!token) throw new Error('Missing DISCORD_TOKEN env var');
+    await this.client.login(token);
   }
 }
 
 process.on('SIGINT', () => process.exit());
 process.on('SIGTERM', () => process.exit());
 process.on('shutdown', () => process.exit());
-process.on('maintenace', () => process.exit());
+process.on('maintenance', () => process.exit());
 
 const bot = new StatusTrackerBot();
 bot.start();
