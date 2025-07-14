@@ -15,7 +15,7 @@
     "discord.js",
     "status-tracker"
   ],
-  "author": "YourNameHere",
+  "author": "crzysoftworks",
   "license": "MIT",
   "dependencies": {
     "discord.js": "^14.17.0"
