@@ -1,0 +1,30 @@
+{
+  "name": "status-tracker-bot",
+  "version": "1.0.0",
+  "description": "A Discord bot that rewards users for repping a vanity URL in their custom status.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node build/index.js",
+    "build": "tsc",
+    "dev": "ts-node src/index.ts"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "discord.js",
+    "status-tracker"
+  ],
+  "author": "YourNameHere",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.17.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.2",
+    "ts-node": "^10.9.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
